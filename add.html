@@ -25,13 +25,15 @@
 <body><main>
 <header><img src="icon-192.png" alt="Finside app icon" width="64" height="64"><div><h1>Add a friend</h1><p class="sub">Finside: Idle Aquarium</p></div></header>
 <nav><a href="./">Home</a><a href="releases.html">What’s New</a><a href="support.html">Support</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
-<!-- Friends' QR codes in the game link here, with the friend code after the #. The # part never leaves the phone (it isn't
-     sent to the website), and nothing on this page is stored. The button opens the game with finside://add/<code>. -->
+<!-- Friends' QR codes in the game link here, with the friend code (and, from 0.12.3, a 15-minute invite) after the #. The
+     # part never leaves the phone (it isn't sent to the website), and nothing on this page is stored. The button opens
+     the game with finside://add/<code>/<invite>: with the invite you're friends at once; without it, a request is sent. -->
 <div id="ok" hidden>
 <p>A friend wants you to add them in Finside. Their friend code is:</p>
 <p id="code" style="font-size:30px;font-weight:900;letter-spacing:.04em;margin:8px 0 16px"></p>
 <p><a id="open" class="btn" style="display:inline-block;padding:12px 22px;border-radius:14px;background:#0f7a6b;color:#fff;font-weight:800;text-decoration:none" href="#">Open Finside and add them</a></p>
-<p>If nothing happens, open Finside, then <b>Menu → Friends → Add a friend</b>, and type the code.</p>
+<p id="soon" hidden>You’ll be friends straight away. This QR code works for 15 minutes after your friend shows it.</p>
+<p>If nothing happens, open Finside, then <b>Menu → Friends → Add a friend</b>, and type the code (that sends them a request).</p>
 </div>
 <div id="bad" hidden>
 <p>This link doesn’t have a friend code in it. Ask your friend for their code (it looks like FIN-ABCD-2345), then open Finside and go to <b>Menu → Friends → Add a friend</b>.</p>
@@ -39,11 +41,12 @@
 <p>Don’t have Finside yet? <a href="./">Find it here.</a></p>
 <script>
   (function () {
-    var m = /^#?FIN-?([2-9A-HJKMNP-Z]{4})-?([2-9A-HJKMNP-Z]{4})$/i.exec(decodeURIComponent(location.hash || ''));
+    var m = /^#?FIN-?([2-9A-HJKMNP-Z]{4})-?([2-9A-HJKMNP-Z]{4})(?:\/([0-9A-F]{16}))?$/i.exec(decodeURIComponent(location.hash || ''));
     if (!m) { document.getElementById('bad').hidden = false; return; }
     var code = 'FIN-' + m[1].toUpperCase() + '-' + m[2].toUpperCase();
     document.getElementById('code').textContent = code;
-    document.getElementById('open').href = 'finside://add/' + code;
+    document.getElementById('open').href = 'finside://add/' + code + (m[3] ? '/' + m[3].toUpperCase() : '');
+    if (m[3]) document.getElementById('soon').hidden = false;
     document.getElementById('ok').hidden = false;
   })();
 </script>
