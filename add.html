@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Add a friend in Finside</title>
+<meta name="description" content="Finside is a cozy idle aquarium game for iPhone and Android. Raise real fish, shrimp and snails, grow live plants, and keep a true-to-life tank thriving.">
+<link rel="canonical" href="https://kampji.github.io/finside/add.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Finside: Idle Aquarium">
+<meta property="og:title" content="Add a friend in Finside">
+<meta property="og:description" content="Finside is a cozy idle aquarium game for iPhone and Android. Raise real fish, shrimp and snails, grow live plants, and keep a true-to-life tank thriving.">
+<meta property="og:url" content="https://kampji.github.io/finside/add.html">
+<meta property="og:image" content="https://kampji.github.io/finside/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Finside: Idle Aquarium, with two phones showing planted fish tanks">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f7a6b">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body><main>
+<header><img src="icon-192.png" alt="Finside app icon" width="64" height="64"><div><h1>Add a friend</h1><p class="sub">Finside: Idle Aquarium</p></div></header>
+<nav><a href="./">Home</a><a href="releases.html">What’s New</a><a href="support.html">Support</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
+<!-- Friends' QR codes in the game link here, with the friend code after the #. The # part never leaves the phone (it isn't
+     sent to the website), and nothing on this page is stored. The button opens the game with finside://add/<code>. -->
+<div id="ok" hidden>
+<p>A friend wants you to add them in Finside. Their friend code is:</p>
+<p id="code" style="font-size:30px;font-weight:900;letter-spacing:.04em;margin:8px 0 16px"></p>
+<p><a id="open" class="btn" style="display:inline-block;padding:12px 22px;border-radius:14px;background:#0f7a6b;color:#fff;font-weight:800;text-decoration:none" href="#">Open Finside and add them</a></p>
+<p>If nothing happens, open Finside, then <b>Menu → Friends → Add a friend</b>, and type the code.</p>
+</div>
+<div id="bad" hidden>
+<p>This link doesn’t have a friend code in it. Ask your friend for their code (it looks like FIN-ABCD-2345), then open Finside and go to <b>Menu → Friends → Add a friend</b>.</p>
+</div>
+<p>Don’t have Finside yet? <a href="./">Find it here.</a></p>
+<script>
+  (function () {
+    var m = /^#?FIN-?([2-9A-HJKMNP-Z]{4})-?([2-9A-HJKMNP-Z]{4})$/i.exec(decodeURIComponent(location.hash || ''));
+    if (!m) { document.getElementById('bad').hidden = false; return; }
+    var code = 'FIN-' + m[1].toUpperCase() + '-' + m[2].toUpperCase();
+    document.getElementById('code').textContent = code;
+    document.getElementById('open').href = 'finside://add/' + code;
+    document.getElementById('ok').hidden = false;
+  })();
+</script>
+<footer>© 2026 Jill Kamperides</footer>
+</main></body>
+</html>
