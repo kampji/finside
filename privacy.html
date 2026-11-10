@@ -24,7 +24,7 @@
 <body><main>
 <header><img src="icon-192.png" alt="Finside app icon" width="64" height="64"><div><h1>Privacy Policy</h1><p class="sub">Finside: Idle Aquarium · Last updated November 9, 2026</p></div></header>
 <nav><a href="./">Home</a><a href="releases.html">What’s New</a><a href="support.html">Support</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
-<p><b>Short version: Finside has no accounts, no ads and no tracking. If you use friend features, a server keeps a random player ID, your friend code, your friend list, and any postcards you choose to send. Nothing else, and you can delete it any time.</b></p>
+<p><b>Short version: Finside has no accounts, no ads and no tracking. If you use friend features, a server keeps a random player ID, your friend code, your friend list, any postcards you choose to send, and your phone’s notification address if you get notifications about friends. Nothing else, and you can delete it any time.</b></p>
 <h2>What Finside collects</h2>
 <p>If you never open the Friends tab: nothing. Your game stays on your device and Finside doesn’t connect to the internet.</p>
 <p>If you use friend features, Finside’s server keeps:</p>
@@ -39,19 +39,21 @@
 <li>while your QR code is showing: a random invite code that lets people who scan it become your friends. It stops working after 15 minutes or 10 uses, and old ones are deleted.</li>
 <li>which friends asked you for a postcard, and when.</li>
 <li>if you report a postcard: who reported it, whose it was, and a copy of it, so it can be reviewed.</li>
+<li>if notifications are on and you have a friend: your phone’s push notification address, which kinds of friend notifications you want, and a short list of notifications waiting to be sent (who it’s for, which friend it’s about, what kind, and when). The list is cleared after 7 days.</li>
 </ul>
 <p>Finside doesn’t collect your name, email address, contacts, location or advertising ID, and nothing from your tanks unless you send a postcard. Your coins, progress and the rest of your save never leave your device.</p>
 <h2>Where it’s kept</h2>
 <p>Friend features run on Supabase, a database service, in the United States (Oregon). Like any website, the server sees your internet (IP) address when the game connects, and Supabase may keep short-term technical logs to run and protect the service. Finside doesn’t use your IP address for anything else.</p>
 <h2>How it’s used</h2>
-<p>Only to make friend features work: showing your friend code, your friends, your requests and postcards, and reviewing reported postcards. It isn’t sold, shared or used for advertising.</p>
+<p>Only to make friend features work: showing your friend code, your friends, your requests and postcards, sending the notifications you turned on, and reviewing reported postcards. It isn’t sold, shared or used for advertising.</p>
 <h2>Deleting your online data</h2>
-<p>In the game: <b>Friends → Delete my online data</b>. That removes your player ID, friend code, friends, requests, blocks, the names you gave your friends, your postcards and asks, and reports about your postcards from the server. Your tanks stay on your device, untouched. You can also email to ask for it to be deleted.</p>
+<p>In the game: <b>Friends → Delete my online data</b>. That removes your player ID, friend code, friends, requests, blocks, the names you gave your friends, your postcards and asks, your phones’ notification addresses, and reports about your postcards from the server. Your tanks stay on your device, untouched. You can also email to ask for it to be deleted.</p>
 <p>If you don’t delete it, it’s kept while friend features exist. If friend features end, it’s deleted.</p>
 <h2>Where your game is saved</h2>
 <p>Your tanks are saved only on your own device. If you delete the app, the save is deleted with it. The game can make a backup code that you can copy; that code stays wherever you choose to put it.</p>
 <h2>Notifications</h2>
-<p>If you allow notifications, reminders like “your fish are hungry” are scheduled by your phone itself. Nothing is sent to a server.</p>
+<p>If you allow notifications, reminders like “your fish are hungry” are scheduled by your phone itself. Nothing is sent to a server for those.</p>
+<p>Notifications about friends and postcards (a new postcard, a postcard ask, a friend request or a new friend) follow the same Notifications switch in Settings, once you have a friend, and each kind can be turned off there. While any are on, Finside’s server keeps your phone’s push notification address so it can reach your phone, and sends each notification through Apple’s push service (iPhone) or Google’s Firebase Cloud Messaging (Android). Each notification holds only a short message, such as “New postcard! From Grandma”, using the name <i>you</i> gave that friend, or their friend code. Turning them off in Settings, or Delete my online data, removes the address from the server.</p>
 <h2>If you contact the developer</h2>
 <p>If you email Finside, your email address and whatever you write are used only to reply to you and to fix or improve the game. They aren’t shared or sold, and you can ask for your messages to be deleted.</p>
 <h2>Beta testing</h2>
